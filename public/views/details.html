@@ -1,0 +1,30 @@
+<div class='container'>
+    <h3>Details</h3> Category Name :
+    <input ng-model="name" placeholder="Category Name" />
+    <button ng-click="toggleVerified()">Verified</button>
+    <br> Sort By:
+    <button id="checkinsCount" ng-click="sort($event)">checkinsCount</button>
+    <button id="usersCount" ng-click="sort($event)">usersCount</button>
+    <button id="tipCount" ng-click="sort($event)">tipCount</button>
+    <br> Reverse Sort By:
+    <button id="checkinsCount" ng-click="rSort($event)">checkinsCount</button>
+    <button id="usersCount" ng-click="rSort($event)">usersCount</button>
+    <button id="tipCount" ng-click="rSort($event)">tipCount</button>
+    <hr>
+    <div ng-repeat='venue in venues| filter:{name:name, verified:verified}'>
+        Name: {{venue.name}}
+        <br> Location Details:
+        <br>
+        <div style="margin-left:10%" ng-repeat='(key,val) in venue.location'>
+            {{key}}:{{val}}
+            <br>
+        </div>
+        <br> is Verified: {{venue.verified}}
+        <br> Stats
+        <div style="margin-left:10%" ng-repeat='(key,val) in venue.stats'>
+            {{key}}:{{val}}
+            <br>
+        </div>
+        <hr>
+    </div>
+</div>
